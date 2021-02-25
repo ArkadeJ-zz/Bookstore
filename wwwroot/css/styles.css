@@ -114,6 +114,11 @@ dl {
   margin-bottom: 1rem;
 }
 
+#navigation a.current{
+    color: burlywood;
+    background:#64a19d;
+}
+
 ol ol,
 ul ul,
 ol ul,
@@ -207,8 +212,10 @@ svg {
   vertical-align: middle;
 }
 
-table {
-  border-collapse: collapse;
+.bleh {
+    border: 1px;
+    border-color: white;
+    width: 100%;
 }
 
 caption {

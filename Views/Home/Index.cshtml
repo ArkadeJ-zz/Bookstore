@@ -2,20 +2,31 @@
     ViewBag.Title = "Home";
 }
 
-@model IQueryable<Book>
+@model BookListViewModel
 <!-- Masthead-->
-<header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
+<header class="masthead h-auto">
+    <div class="container d-flex h-auto align-items-center">
+        <br /><br /><br />
+        <div class="text-center m-5">
             <h1 class="mx-auto my-0 text-uppercase">Bookstore</h1>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">Reading is the portal to any adventure. Our selection of books will start you on the journey you are searching for.</h2>
             <div class="text-white mb-5">
                 <center>
-                    <table>
+                    <table class="table table-striped text-white-50">
                         <thead>
-                            <tr><th>Book ID</th><th>Title</th><th>Author</th><th>Publisher</th><th>Classification</th><th>Category</th><th>ISBN</th><th>Price</th></tr>
+                            <tr>
+                                <th>Book ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Publisher</th>
+                                <th>Classification</th>
+                                <th>Category</th>
+                                <th>ISBN</th>
+                                <th>Price</th>
+                                <th>Pages</th>
+                            </tr>
                         </thead>
-                        @foreach (var x in Model)
+                        @foreach (var x in Model.Books)
                         {
                             <tr>
                                 <td>@x.BookId</td>
@@ -27,16 +38,16 @@
                                 <td>@x.Category</td>
                                 <td>@x.ISBN</td>
                                 <td>@x.Price</td>
+                                <td>@x.Pages</td>
                             </tr>
                         }
                     </table>
+                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
                 </center>
             </div>
         </div>
-    </div>
+    </div><br /><br />
 </header>
-<!-- Footer-->
-<footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Bookstore 2021</div></footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
