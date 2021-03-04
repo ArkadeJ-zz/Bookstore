@@ -1,0 +1,14 @@
+﻿@model Book
+
+<tr>
+    <td>@Model.BookId</td>
+    <td>@Model.Title</td>
+    <!--Concatenate author name-->
+    <td>@Model.AuthorFname @Model.AuthorMiddle @Model.AuthorLname</td>
+    <td>@Model.Publisher</td>
+    <td>@Model.Classification</td>
+    <td>@Model.Category</td>
+    <td>@Model.ISBN</td>
+    <td>@Model.Price</td>
+    <td>@Model.Pages</td>
+</tr>

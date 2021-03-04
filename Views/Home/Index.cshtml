@@ -7,45 +7,37 @@
 <header class="masthead h-auto">
     <div class="container d-flex h-auto align-items-center">
         <br /><br /><br />
-        <div class="text-center m-5">
-            <h1 class="mx-auto my-0 text-uppercase">Bookstore</h1>
-            <h2 class="text-white-50 mx-auto mt-2 mb-5">Reading is the portal to any adventure. Our selection of books will start you on the journey you are searching for.</h2>
-            <div class="text-white mb-5">
-                <center>
-                    <table class="table table-striped text-white-50">
-                        <thead>
-                            <tr>
-                                <th>Book ID</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Publisher</th>
-                                <th>Classification</th>
-                                <th>Category</th>
-                                <th>ISBN</th>
-                                <th>Price</th>
-                                <th>Pages</th>
-                            </tr>
-                        </thead>
-                        @foreach (var x in Model.Books)
-                        {
-                            <tr>
-                                <td>@x.BookId</td>
-                                <td>@x.Title</td>
-                                <!--Concatenate author name-->
-                                <td>@x.AuthorFname @x.AuthorMiddle @x.AuthorLname</td>
-                                <td>@x.Publisher</td>
-                                <td>@x.Classification</td>
-                                <td>@x.Category</td>
-                                <td>@x.ISBN</td>
-                                <td>@x.Price</td>
-                                <td>@x.Pages</td>
-                            </tr>
-                        }
-                    </table>
-                    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
-                </center>
-            </div>
-        </div>
+                    <div class="text-center m-5">
+                        <h1 class="mx-auto my-0 text-uppercase">Bookstore</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Reading is the portal to any adventure. Our selection of books will start you on the journey you are searching for.</h2>
+                        <div class="text-white mb-5">
+                            <vc:navigation-menu-view-components />
+                        </div>
+                        <div class="text-white mb-5">
+                            <center>
+                                <table class="table table-striped text-white-50">
+                                    <thead>
+                                        <tr>
+                                            <th>Book ID</th>
+                                            <th>Title</th>
+                                            <th>Author</th>
+                                            <th>Publisher</th>
+                                            <th>Classification</th>
+                                            <th>Category</th>
+                                            <th>ISBN</th>
+                                            <th>Price</th>
+                                            <th>Pages</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach (var x in Model.Books)
+                                    {
+                                        <partial name="BookCategories" model="x" />
+                                    }
+                                </table>
+                                <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1" page-url-category="@Model.CurrentCategory"></div>
+                            </center>
+                        </div>
+                    </div>
     </div><br /><br />
 </header>
 <!-- Bootstrap core JS-->
